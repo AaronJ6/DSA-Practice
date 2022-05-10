@@ -1,4 +1,4 @@
-def twoSum(self, numbers, target):
+def twoSum_II(self, numbers, target):
     """
     :type numbers: List[int]
     :type target: int

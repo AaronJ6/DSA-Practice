@@ -21,7 +21,7 @@ def findMedianSortedArrays(nums1, nums2):
         Aright = A[m1+1] if (m1+1)<len(A) else float("infinity")
         
         Bleft = B[m2] if m2>=0 else float("-infinity")
-        Bright = A[m2+1] if (m2+1)<len(B) else float("infinity") 
+        Bright = B[m2+1] if (m2+1)<len(B) else float("infinity") 
         
         if Aleft <= Bright and Bleft <= Aright: #correct partition
             if total % 2:
@@ -32,3 +32,15 @@ def findMedianSortedArrays(nums1, nums2):
             r = m1 - 1
         else:
             l = m1 + 1
+
+def main():
+    nums1 = [1,2]
+    nums2 = [3,4]
+    op = findMedianSortedArrays(nums1, nums2)
+    print(op)
+    # for k in range(len(op)):
+    #     print(op[k])
+
+
+if __name__ == "__main__":
+    main()            

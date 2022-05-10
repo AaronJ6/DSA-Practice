@@ -13,6 +13,6 @@ def twoSum_II(self, numbers, target):
         elif(chk>target): r-=1
         else:
             op.add(l+1)
-            op.add(r+1)
+            op.add(r+1) #return[l+1,r+1]
             break
     return(op)

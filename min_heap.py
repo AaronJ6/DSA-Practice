@@ -83,7 +83,7 @@ def kthSmallest(arr, n, k):
 	return mh.getMin()
 
 # Driver code
-def main():
+def main(): #!To print the kth smallest number
     arr = [12, 3, 5, 7, 19]
     n = len(arr)
     k = 2

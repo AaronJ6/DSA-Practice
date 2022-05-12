@@ -6,35 +6,39 @@ def findTargetSumWays(nums, target): #!NEETCODE method
     :type target: int
     :rtype: int
     """
-    dp = {} # position - (index, total) -> storing number of ways #!type(dp) = dictionary
+    # dp = {} # position - (index, total) -> storing number of ways #!type(dp) = dictionary
 
-    def backtrack(i, total): #imp concept - backtracking, dynamic programming with caching - thats why we keep a dictionary to store the possibilities of different combinations
+    # def backtrack(i, total): #imp concept - backtracking, dynamic programming with caching - thats why we keep a dictionary to store the possibilities of different combinations
 
-        if(i == len(nums)): 
-            if total == target:
-                return 1 
-            else:
-                return 0
-        if(i,total) in dp:
-            return dp[(i,total)]
-        dp[(i,total)] = backtrack(i+1, total + nums[i]) + backtrack(i+1, total - nums[i])
-        return(dp[(i,total)])
+    #     if(i == len(nums)): 
+    #         if total == target:
+    #             return 1 
+    #         else:
+    #             return 0
+    #     if(i,total) in dp:
+    #         return dp[(i,total)]
+    #     dp[(i,total)] = backtrack(i+1, total + nums[i]) + backtrack(i+1, total - nums[i])
+    #     return(dp[(i,total)])
 
-    return(backtrack(0,0))
+    # return(backtrack(0,0))
 
 
-"""     dp = defaultdict(int) #!COMMENT section answer - this builds the decision tree on a dictionary and gets the answer NEETCODE also does the same thing but recursively
+    dp = defaultdict(int) #!COMMENT section answer - this builds the decision tree on a dictionary and gets the answer NEETCODE also does the same thing but recursively but so good logic of keeping data
     dp[0] = 1
+    # dp = {0:1}
+
 
     for num in nums:
         new_dp = defaultdict(int)
-        print(dp)
+        # print(dp)
         for n in dp:
-            print(n)
+            # print(n)
             new_dp[n+num] += dp[n]
             new_dp[n-num] += dp[n]
-            print(new_dp)
-        dp = new_dp """
+            # print(new_dp)
+        dp = new_dp
+
+    return(dp[target])
 
 def main():
     nums = [1,1,1,1,1]

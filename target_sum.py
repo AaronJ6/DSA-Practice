@@ -23,7 +23,7 @@ def findTargetSumWays(nums, target): #!NEETCODE method
     return(backtrack(0,0))
 
 
-"""     dp = defaultdict(int) #!COMMENT section answer - this builds the decision tree on a dictionary and gets the answer
+"""     dp = defaultdict(int) #!COMMENT section answer - this builds the decision tree on a dictionary and gets the answer NEETCODE also does the same thing but recursively
     dp[0] = 1
 
     for num in nums:

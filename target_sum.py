@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-def findTargetSumWays(self, nums, target): #!NEETCODE method
+def findTargetSumWays(nums, target): #!NEETCODE method
     """
     :type nums: List[int]
     :type target: int
@@ -19,7 +19,7 @@ def findTargetSumWays(self, nums, target): #!NEETCODE method
     return(backtrack(0,0))
 
 
-    dp = defaultdict(int) #!COMMENT section answer - this builds the decision tree on a dictionary and gets the answer
+"""     dp = defaultdict(int) #!COMMENT section answer - this builds the decision tree on a dictionary and gets the answer
     dp[0] = 1
 
     for num in nums:
@@ -30,4 +30,13 @@ def findTargetSumWays(self, nums, target): #!NEETCODE method
             new_dp[n+num] += dp[n]
             new_dp[n-num] += dp[n]
             print(new_dp)
-        dp = new_dp
+        dp = new_dp """
+
+def main():
+    nums = [1,1,1,1,1]
+    target = 3
+    op = findTargetSumWays(nums, target)
+    print(op)
+
+if __name__ == "__main__":
+    main()

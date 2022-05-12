@@ -10,7 +10,11 @@ def findTargetSumWays(nums, target): #!NEETCODE method
 
     def backtrack(i, total): #imp concept - backtracking, dynamic programming with caching - thats why we keep a dictionary to store the possibilities of different combinations
 
-        if(i == len(nums)): return 1 if total == target else 0
+        if(i == len(nums)): 
+            if total == target:
+                return 1 
+            else:
+                return 0
         if(i,total) in dp:
             return dp[(i,total)]
         dp[(i,total)] = backtrack(i+1, total + nums[i]) + backtrack(i+1, total - nums[i])

@@ -3,9 +3,8 @@ def rec(i, nums):
         return 1
     else:
         op = 0
-        if i < len(nums) and i != 0:
+        if i < len(nums) and nums[i] != 0:
             i+=nums[i]
-        elif i == 0: i += 1
         else:
             return op
         op += rec(i, nums)

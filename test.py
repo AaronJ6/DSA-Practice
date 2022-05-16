@@ -14,4 +14,6 @@ def merge(arr1, arr2, n, m):
 
 arr1 = [1,3,5,7]
 arr2 = [0,2,6,8,9]
-merge(arr1, arr2, 4, 5)
+# merge(arr1, arr2, 4, 5)
+arr = [i for i in range(len(arr1))]
+print(arr)

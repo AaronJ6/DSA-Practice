@@ -1,19 +1,14 @@
-def merge(arr1, arr2, n, m): 
-    # code here
-    i = 0
-    j = 0
-    while i<n:
-        mn = arr2.index(min(arr2))
-        if arr1[i]>arr2[mn]:
-            arr2[mn], arr1[i] = arr1[i], arr2[mn]
-        i+=1
-    arr1 = sorted(arr1)
-    arr2 = sorted(arr2)
-    print(arr1, arr2)
+n = 43261596
 
-
-arr1 = [1,3,5,7]
-arr2 = [0,2,6,8,9]
-# merge(arr1, arr2, 4, 5)
-arr = [i for i in range(len(arr1))]
-print(arr)
+op = 0
+arr = []
+while n!=0:
+    arr.append(n%2)
+    n = n//2
+i = 0
+while len(arr)!=0:
+    ad = arr.pop()
+    if ad == 1:
+        op+=pow(2,i)
+    i+=1
+print(op)

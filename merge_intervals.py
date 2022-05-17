@@ -36,4 +36,35 @@ def merge(self, intervals):
             save = intervals[i][1]
         res[i].append([intervals[i][0],intervals[i][1]])
     return res """
+
+""" if len(intervals) == 1: #!CORRECT IMPLEMENTATION OF MY IDEA
+    return intervals
+        
+     stack = [] #!c
+    
+    intervals.sort()
+    
+    i = 0
+    stack.append([intervals[0][0], intervals[0][1]])
+    
+    while i < len(intervals)-1:
+        curr = stack[-1]
+        start = curr[0]
+        end = curr[1]
+        
+        nxt = intervals[i+1]
+        
+        if end >= nxt[0]: # Conflict
+            if end >= nxt[1]: # Full
+                i += 1
+                continue # No change
+            stack.pop()
+            stack.append([start, nxt[1]])
+            i +=1
+            continue
+        
+        stack.append( [nxt[0], nxt[1]] )
+        continue
+        
+    return stack """
             

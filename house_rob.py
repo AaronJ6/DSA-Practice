@@ -16,7 +16,7 @@ def rob(nums): #!NEETCODE
 #! from the back and front, but back is faster
     robOption1 = 0 
     robOption2 = 0
-    print(range(len(nums)-1, -1, -1))
+    #print(range(len(nums)-1, -1, -1))
     for money in range(len(nums)-1, -1, -1):
         oldRobOption1 = robOption1
         robOption1 = max(robOption1, nums[money] + robOption2)

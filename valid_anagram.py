@@ -36,6 +36,29 @@ def isAnagram(s, t):
             return False
         s = s.replace('t[post]', '')
     return True  """
+    """ 
+    if len(s) != len(t): #!LEETCODE fastest code, good if condts to end early but still
+                        #! similar to NEETCODE
+        return False
+        
+    cs = {}
+    
+    for c in s:
+        if c not in cs:
+            cs[c] = 1
+        else:
+            cs[c] += 1
+    
+    for c in t:
+        if c not in cs:
+            return False
+        else:
+            cs[c] -= 1
+            if cs[c] == 0:
+                cs.pop(c)
+    if(len(cs) > 0):
+        return False
+    return True """
 
 s = 'ccac'
 t = 'aacc'

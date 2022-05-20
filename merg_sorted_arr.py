@@ -6,7 +6,7 @@ def merge(nums1, m, nums2, n):
     :type n: int
     :rtype: None Do not return anything, modify nums1 in-place instead.
     """
-    # i = 0 #!MY CODE
+    # i = 0 #!MY CODE doesnt work
     # j = 0
     # mn = 0
     # save = 1000000

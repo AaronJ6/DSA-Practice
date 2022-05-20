@@ -1,7 +1,3 @@
-from pickle import FALSE
-from typing import Counter
-
-
 def isAnagram(s, t):
     """
     :type s: str
@@ -28,7 +24,7 @@ def isAnagram(s, t):
         countS[s[i]] = 1 + countS.get(s[i], 0)
         countT[t[i]] = 1 + countT.get(t[i], 0)
     for c in countS:
-        if countS[c] != countT.get(countT[c], 0):
+        if countS[c] != countT.get(c, 0):
             return False
     return True
     
@@ -46,4 +42,4 @@ t = 'aacc'
 if isAnagram(t,s):
     print("TRUE")
 else:
-    print(FALSE)
+    print("FALSE")

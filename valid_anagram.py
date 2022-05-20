@@ -8,6 +8,11 @@ def isAnagram(s, t):
     :type t: str
     :rtype: bool
     """
+    #? The below solution maybe faster, but it depends on the 
+    #? in-built sort function, where the time and space complexity 
+    #? could be more than expected. Sometimes interviewers take space
+    #? as O(1) for in-built.
+    return(sorted(s) == sorted(t)) #!NEETCODE #1
     """     
     if(len(s) != len(t)): #! NEETCODE #2
         return False

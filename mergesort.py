@@ -1,4 +1,4 @@
-def merge_sort(arr, low, high):
+""" def merge_sort(arr, low, high): #!MY CODE
     if low == high:
         return
     mid = (low + high)/2
@@ -14,11 +14,15 @@ def merge_arr(arr, low, high):
     temp = [0] * (high - low + 1)
     while (i<= mid and j<high):
         if(arr[i]<arr[j]):
-            temp[k++] = arr[i++]
+            temp[k] = arr[i]
+            k+=1
+            i+=1
         else:
-            temp[k++] = arr[j++]
+            temp[k] = arr[j]
+            k+=1
+            j+=1
     for x in range(low,high+1):
-        arr[x] = temp[x]
+        arr[x] = temp[x] """
 
     # MERGE_SORT #!WORKING
 def mergeSort(nums):

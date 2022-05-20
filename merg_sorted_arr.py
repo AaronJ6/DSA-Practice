@@ -45,3 +45,17 @@ def merge(nums1, m, nums2, n):
     while j>=0:
         nums1[ins] = nums2[j]
         j, ins = j-1, ins-1
+
+""" ins = m+n-1
+    i = m-1
+    j = n-1
+    #!for k in range(ins,-1,-1):
+    #!  if i<=k:
+            if j<0:
+                return
+            if i>=0 and nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]
+                i-=1
+            else:
+                nums1[k] = nums2[j]
+                j-=1 """

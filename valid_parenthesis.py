@@ -4,29 +4,17 @@ def isValid(s):
     :rtype: bool
     """
     stk = []
-    i = 0
-    stk.append(s[i])
-    i+=1    
-    while i<len(s):
-        if s[i] == '(' or s[i] == '[' or s[i] == '{':
-            stk.append(s[i])
-            i+=1
-        else:
-            chk = stk.pop()
-            if chk != None:
-                if s[i] == ')' and chk != '(':
-                    return False
-                elif s[i] == ']' and chk != '[':
-                    return False
-                elif s[i] == '}' and chk != '{':
-                    return False
+    closed_bracket = {')':'(', ']':'[', '}':'{'}
+    for i in s:
+        if i in closed_bracket:
+            if stk and stk[-1] == closed_bracket[i]:
+                stk.pop()
             else:
                 return False
-            i+=1
-    if len(stk)>0:
-        return False
-    else:
+    if not stk:
         return True
+    else:
+        return False
 
 s = '(){}}{'
 ck = isValid(s)

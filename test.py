@@ -1,14 +1,5 @@
-n = 43261596
-
-op = 0
-arr = []
-while n!=0:
-    arr.append(n%2)
-    n = n//2
-i = 0
-while len(arr)!=0:
-    ad = arr.pop()
-    if ad == 1:
-        op+=pow(2,i)
-    i+=1
-print(op)
+nums = [2,3,3,1,3]
+i = 2
+print(nums)
+nums[i+1:] = nums[i+1:][::-1]
+print(nums)

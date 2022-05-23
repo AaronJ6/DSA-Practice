@@ -11,6 +11,8 @@ def isValid(s):
                 stk.pop()
             else:
                 return False
+        else:
+            stk.append(i)
     if not stk:
         return True
     else:

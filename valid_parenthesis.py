@@ -1,14 +1,14 @@
-def isValid(s):
+def isValid(self, s):
     """
     :type s: str
     :rtype: bool
     """
     stk = []
-    if(len(s)<2):
-        return False
-    for i in range(len(s)):
+    i = 0
+    while i<len(s) and len(stk)>0:
         if s[i] == '(' or s[i] == '[' or s[i] == '{':
             stk.append(s[i])
+            i+=1
         else:
             chk = stk.pop()
             if s[i] == ')' and chk != '(':
@@ -17,7 +17,11 @@ def isValid(s):
                 return False
             if s[i] == '}' and chk != '{':
                 return False
-    return True
+            i+=1
+    if len(stk)>0:
+        return False
+    else:
+        return True
 
 s = '(]'
 ck = isValid(s)

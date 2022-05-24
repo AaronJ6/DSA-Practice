@@ -5,7 +5,6 @@ def search(nums, target):
     :rtype: int
     """
     op = -1
-    
     l = 0
     r = len(nums)-1
     while(l<=r):
@@ -23,3 +22,8 @@ def search(nums, target):
             else:
                 l = mid + 1
     return op
+
+nums = [4,5,6,7,0,1,2]
+target = 0
+op = search(nums, target)
+print(op)

@@ -1,4 +1,7 @@
 # Definition for a binary tree node.
+from collections import deque #!Queue DS from libararies
+
+
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -20,4 +23,23 @@ class Solution(object):
             opl, opr = 1, 1
             opl += self.depth(temp.left)
             opr += self.depth(temp.right)
-            return(max(opl,opr))       
+            return(max(opl,opr))  
+
+    def maxDepth(self, root): #! NEETCODE Iterative BFS
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        q = deque([root])
+        level = 0
+        while q:
+            for i in range(len(q)):
+                node = q.popleft()
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            level+=1
+        return(level)

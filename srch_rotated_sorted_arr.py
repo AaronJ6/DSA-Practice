@@ -4,7 +4,7 @@ def search(nums, target):
     :type target: int
     :rtype: int
     """
-    l = 0
+    l = 0 #! NEETCODE
     r = len(nums)-1
     while(l<=r):
         mid = (l+r)//2

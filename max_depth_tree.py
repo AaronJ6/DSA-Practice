@@ -25,7 +25,7 @@ class Solution(object):
             opr += self.depth(temp.right)
             return(max(opl,opr))  
 
-    def maxDepth(self, root): #! NEETCODE Iterative BFS
+    def maxDepth(self, root): #! NEETCODE Iterative BFS using deque
         """
         :type root: TreeNode
         :rtype: int
@@ -43,3 +43,22 @@ class Solution(object):
                     q.append(node.right)
             level+=1
         return(level)
+
+    def maxDepth(self, root): #! NEETCODE Iterative DFS using list(stack)
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        stack = ([root,1])
+        res = 1
+        while stack:
+            node, depth = stack.pop()
+
+            if node:
+                res = max(res, depth)
+                stack.append([node.left, depth+1])
+                stack.append([node.right, depth+1])
+        
+        return res

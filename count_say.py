@@ -4,7 +4,7 @@ def countAndSay(n):
     :rtype: str
     """
     op = ""
-    count = 0
+    count = 1
     temp = n%10
     n = n//10
     while n>0:
@@ -12,12 +12,19 @@ def countAndSay(n):
         if chk == temp:
             count+=1
         else:
-            op = op + str(count) + str(temp)
+            if count>1:
+                op = str(count) + str(temp) + op
+            else:
+                op = str(temp) + op
             temp = chk
-            count = 0
-        n//10
+            count = 1
+        n = n//10
+    if count>1:
+        op = str(count) + str(temp) + op
+    else:
+        op = str(temp) + op
     print(op)
     # return op
-        
-                
-            
+
+n = 4
+countAndSay(n)

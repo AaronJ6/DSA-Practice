@@ -12,7 +12,9 @@ def countAndSay(n):
     nn = ""
     count=1
     for i in range(len(k)):
-        if k[i]==k[i+1]:                        #* here checking if next element is equal then have to do count++
+        if i+1==len(k):
+            nn+=str(count)+k[i]
+        elif k[i]==k[i+1]:                        #* here checking if next element is equal then have to do count++
             count+=1
         else:
             nn += str(count)+k[i]

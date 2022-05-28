@@ -3,7 +3,25 @@ def countAndSay(n):
     :type n: int
     :rtype: str
     """
-    op = ""
+    c=["1"] #!SOLUTION
+    for i in range(n-1):
+        temp=c[i]
+        output=""
+        count=1
+        for j in range(len(temp)):
+            if j+1==len(temp):
+                output+=str(count)+temp[j]
+                count=1
+                break                    
+            if temp[j]==temp[j+1]:
+                count+=1
+            else:
+                output+=str(count)+temp[j]
+                count=1
+        c.append(output)
+    return c[n-1]
+
+"""     op = "" #!MY CODE
     count = 1
     temp = n%10
     n = n//10
@@ -24,7 +42,7 @@ def countAndSay(n):
     else:
         op = str(temp) + op
     print(op)
-    # return op
+    return op """
 
-n = 4
-countAndSay(n)
+n = 6
+print(countAndSay(n))

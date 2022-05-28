@@ -3,7 +3,23 @@ def countAndSay(n):
     :type n: int
     :rtype: str
     """
-    c=["1"] #!SOLUTION
+    s = "" #!RECURSIVE SOLUTION
+    if n==1:
+        s="1"
+        return s
+   
+    k = countAndSay(n-1)
+    nn = ""
+    count=1
+    for i in range(len(k)):
+        if k[i]==k[i+1]:                        #* here checking if next element is equal then have to do count++
+            count+=1
+        else:
+            nn += str(count)+k[i]
+            count=1
+    return nn
+
+"""     c=["1"] #!ITERATIVE SOLUTION
     for i in range(n-1):
         temp=c[i]
         output=""
@@ -19,7 +35,8 @@ def countAndSay(n):
                 output+=str(count)+temp[j]
                 count=1
         c.append(output)
-    return c[n-1]
+    return c[n-1] """
+
 
 """     op = "" #!MY CODE
     count = 1

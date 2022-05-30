@@ -8,7 +8,7 @@ class TreeNode(object):
 
 
 class Solution(object):
-    def isCousins(self, root, x, y):
+    def isCousins(self, root, x, y): #!SIMPLIFIED version of the below function
         queue = deque()
         queue.append((root, 0))
         dist={}
@@ -29,3 +29,39 @@ class Solution(object):
         y_parent, y_depth = dist[y]
         
         return x_depth == y_depth and x_parent != y_parent
+
+    def isCousins(self, root, x, y):
+        """
+        :type root: TreeNode
+        :type x: int
+        :type y: int
+        :rtype: bool
+        """
+        x_found, y_found = False, False
+        x_parent, y_parent = None, None
+        x_depth, y_depth = 0, 0
+        
+        q = [(0,root,None)]
+        
+        while q:
+            d, node, par = q.pop()
+            
+            if node.val == x:
+                x_found = True
+                x_parent = par
+                x_depth = d
+            elif node.val == y:
+                y_found = True
+                y_parent = par
+                y_depth = d
+            
+            if node.left:
+                q.append((d+1,node.left,node))
+            
+            if node.right:
+                q.append((d+1,node.right,node))
+                
+            if x_found and y_found:
+                break
+        
+        return( (x_depth==y_depth) and (x_parent!=y_parent) and x_found and y_found)

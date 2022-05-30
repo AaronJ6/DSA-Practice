@@ -1,5 +1,31 @@
-nums = [2,3,3,1,3]
-i = 2
-print(nums)
-nums[i+1:] = nums[i+1:][::-1]
-print(nums)
+# Python program to
+# demonstrate stack implementation
+# using collections.deque
+
+from collections import deque
+
+stack = deque()
+
+# append() function to push
+# element in the stack
+stack.append('a')
+stack.append('b')
+stack.append('c')
+
+print('Initial stack:')
+print(stack)
+
+# pop() function to pop
+# element from stack in
+# LIFO order
+print('\nElements popped from stack:')
+print(stack.popleft())
+print(stack.popleft())
+print(stack.popleft())
+
+print('\nStack after elements are popped:')
+print(stack)
+
+# uncommenting print(stack.pop())
+# will cause an IndexError
+# as the stack is now empty

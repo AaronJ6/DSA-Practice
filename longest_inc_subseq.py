@@ -4,7 +4,7 @@ def lengthOfLIS(nums):
     :rtype: int
     """
     # sz = 0
-    dp = [0]*len(nums)
+    dp = [0]*(len(nums)-1)
     dp[0] = 1
     i = 1
     for n in nums[1:]:
@@ -18,5 +18,5 @@ def lengthOfLIS(nums):
         i+=1
     return dp[-1]
 
-nums = [10,9,2,5,3,7,101,18]
+nums = [0,1,0,3,2,3]
 print(lengthOfLIS(nums))

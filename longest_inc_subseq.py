@@ -1,4 +1,4 @@
-def lengthOfLIS(self, nums):
+def lengthOfLIS(nums):
     """
     :type nums: List[int]
     :rtype: int

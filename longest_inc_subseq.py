@@ -9,6 +9,18 @@ def lengthOfLIS(nums):
             if nums[i]<nums[j]:
                 dp[i] = max(dp[i], 1+dp[j])
     return max(dp)
+
+    """ ret = [] #!FASTEST CODE
+        
+    for i in nums:
+        idx = bisect.bisect_left(ret,i)
+        
+        if idx == len(ret):
+            ret.append(i)
+        else:
+            ret[idx] = i
+    
+    return len(ret) """
     """ 
     dp = [0]*len(nums) #!MY CODE
     dp[0] = 1

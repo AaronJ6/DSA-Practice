@@ -15,3 +15,7 @@ def wordBreak(s, wordDict):
             if dp[i]:
                 break
     return dp[0]
+
+s = "leercode"
+wordDict = ["leet","code"]
+print(wordBreak(s,wordDict))

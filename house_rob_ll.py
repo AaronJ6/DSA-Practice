@@ -11,12 +11,12 @@ def rob(nums): #!MY CODE
     elif len(nums) == 2:
         return max(nums[0], nums[1])
     else:
-        return max(rob_fn(nums, 1, len(nums)), rob_fn(nums, 0, len(nums)-1))
+        return max(rob_fn(nums[1:]), rob_fn(nums[:-1]))
 
-def rob_fn(nums, start, end):
+def rob_fn(nums):
     sum1, sum2 = 0, 0
-    for i in range(start, end):
-        temp = max(nums[i]+sum1, sum2)
+    for n in nums:
+        temp = max(n+sum1, sum2)
         sum1 = sum2
         sum2 = temp
     return sum2

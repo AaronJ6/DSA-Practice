@@ -38,5 +38,5 @@ def rec_fn(i, s):
             lng2 = -1
         return max(lng1, lng2)
 
-s = "06"
-print(rec_fn(0,s))
+s = "106"
+print(numDecodings(s))

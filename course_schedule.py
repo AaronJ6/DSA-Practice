@@ -8,7 +8,7 @@ def canFinish(numCourses, prerequisites):
         return True
     check = {}
     possible = True
-    
+        
     def chk_fn(pre):
         if pre[1] == pre[0]:
             return False
@@ -24,6 +24,6 @@ def canFinish(numCourses, prerequisites):
     
     return possible
 
-numC = 2
-prereq = []
+numC = 3
+prereq = [[0,2],[1,2],[2,0]]
 print(canFinish(numC, prereq))

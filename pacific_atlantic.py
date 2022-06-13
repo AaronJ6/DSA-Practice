@@ -1,14 +1,13 @@
-def pacificAtlantic(self, heights):
+def pacificAtlantic(heights):
     """
     :type heights: List[List[int]]
     :rtype: List[List[int]]
     """
-    row, col = len(heights), len(heights[0])
-    
+    row, col = len(heights), len(heights[0])    
     pac, atl = set(), set()
     
     def dfs(r,c,visit,prevH):
-        if ( (r,c) in visit or r<0 or c<0 or r==row or c==col or prevH == heights[r][c]):
+        if ( (r,c) in visit or r<0 or c<0 or r==row or c==col or heights[r][c]<prevH):
             return
         visit.add((r,c))
         dfs(r+1,c,visit,heights[r][c])
@@ -25,7 +24,8 @@ def pacificAtlantic(self, heights):
         dfs(r,0,pac,heights[r][0])
         dfs(r,col-1,atl,heights[r][col-1])
         
-    # res = list(pac.intersection(atl))
-    # print(res)
-    print(pac)
-    print(atl)
+    res = list(pac.intersection(atl))
+    return res
+
+heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+pacificAtlantic(heights)

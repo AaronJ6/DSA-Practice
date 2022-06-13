@@ -4,11 +4,35 @@ def canFinish(numCourses, prerequisites):
     :type prerequisites: List[List[int]]
     :rtype: bool
     """
-    if len(prerequisites) == 0:
+    preMap = { i:[] for i in range(numCourses)}
+    visit = set()
+    
+    for pre in prerequisites:
+        preMap[pre[1]].append(pre[0])
+    
+    def dfs(node):
+        if node in visit:
+            return False
+        if preMap[node] == []:
+            return True
+        
+        visit.add(node)
+        for pre in preMap[node]:
+            if not dfs(pre):
+                return False
+        visit.remove(node)
+        preMap[node] = []
+        return True
+    for crs in range(numCourses):
+        if not dfs(crs): return False
+    
+    return True
+    
+"""     if len(prerequisites) == 0:
         return True
     check = {}
     possible = True
-        
+
     def chk_fn(pre):
         if pre[1] == pre[0]:
             return False
@@ -22,8 +46,7 @@ def canFinish(numCourses, prerequisites):
     for prerq in prerequisites:
         possible = (possible and chk_fn(prerq))
     
-    return possible
-
+    return possible """
 numC = 3
 prereq = [[0,2],[1,2],[2,0]]
 print(canFinish(numC, prereq))

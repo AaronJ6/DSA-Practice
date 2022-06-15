@@ -19,6 +19,7 @@ def isPalindrome(head):
     first = prev
     second = slow if not fast else slow.next #!we check if fast has reached the end or not to decide if we take 
                                             #! slow as the starting for second half not sure why else part
+                                            #!testcase for "else" => [1,0,1]
     
     while first and second:
         if first.val != second.val:

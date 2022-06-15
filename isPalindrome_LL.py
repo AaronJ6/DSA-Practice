@@ -17,7 +17,7 @@ def isPalindrome(head):
         slow = nxt
     
     first = prev
-    second = slow if not fast else slow.next #!we check fast if its an even no. of list or not
+    second = slow if not fast else slow.next #!we check fast if its an even no. of elements or not
                                             #!testcase for "else" => [1,0,1]
     
     while first and second:

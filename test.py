@@ -1,47 +1,41 @@
-def find_island(m, n, i, j, grid):
-    if (i+1 <= (m-1)):
-        if (grid[i+1][j]=='1'):
-            grid[i+1][j] = '2'
-            find_island(m,n,i+1,j,grid)
-    if (j+1 <= (n-1)):
-        if (grid[i][j+1]=='1'):
-            grid[i][j+1] = '2'
-            find_island(m,n,i,j+1,grid)
-    if (i-1 >= 0):
-        if (grid[i-1][j]=='1'):
-            grid[i-1][j] = '2'
-            find_island(m,n,i-1,j,grid)
-    if (j-1 >= 0):
-        if (grid[i][j-1]=='1'):
-            grid[i][j-1] = '2'
-            find_island(m,n,i,j-1,grid)
+from typing import List
 
 
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+def isPalindrome( head):
+    if not head:
+        return True
+    dummy = None 
+    slow, fast = head, head
+    prev = dummy
+    while fast and fast.next:
+        fast = fast.next.next
+        nxt = slow.next
+        slow.next = prev
+        prev = slow
+        slow = nxt
+    
+    # if we want to restore the original linkedlist, in case the func belongs to a big program
+    # (did not implement in this script!)
+    
+    first = prev
+    second = slow if not fast else slow.next
+    while first and second:
+        if first.val != second.val:
+            return False
+        first = first.next
+        second = second.next
 
-def numIslands(grid):
-    """
-    :type grid: List[List[str]]
-    :rtype: int
-    """
-    number_of_islands = 0;
-    i = 0;
-    j = 0;
-    m = len(grid);
-    n = len(grid[0]);
-    while ((i <= m-1) or (j <= n-1)):
-        if (grid[i][j]=='0' or grid[i][j]=='2'):
-            if (j < n-1):
-                j = j+1;
-            elif ((j == (n-1)) and (i < (m-1))):
-                i = i+1;
-                j = 0;
-            elif ((j == (n-1)) and (i == (m-1))):
-                return number_of_islands
-        elif (grid[i][j]=='1'):
-            grid[i][j] = '2'
-            find_island(m,n,i,j,grid)
-            number_of_islands = number_of_islands + 1
-    return number_of_islands
+ob1 = ListNode(1)
+ob2 = ListNode(2)
+ob3 = ListNode(2)
+ob4 = ListNode(1)
 
-grid = [["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
-print(numIslands(grid))
+ob1.next = ob2
+ob2.next = ob3
+ob3.next = ob4
+
+isPalindrome(ob1)

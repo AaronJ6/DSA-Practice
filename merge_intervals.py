@@ -1,7 +1,7 @@
 from sys import last_traceback
 
 
-def merge(self, intervals):
+def merge(intervals):
     """
     :type intervals: List[List[int]]
     :rtype: List[List[int]]

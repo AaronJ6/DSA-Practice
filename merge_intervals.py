@@ -1,6 +1,3 @@
-from sys import last_traceback
-
-
 def merge(intervals):
     """
     :type intervals: List[List[int]]

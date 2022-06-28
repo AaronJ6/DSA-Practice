@@ -40,3 +40,8 @@ def countPairs(n, edges):
         ans += firstGroupCount * groupCounts[i]
         firstGroupCount += groupCounts[i]  
     return ans
+
+n = 7
+edges = [[0,2],[0,5],[2,4],[1,6],[5,4]]
+
+print(countPairs(n,edges))

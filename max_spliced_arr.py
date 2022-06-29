@@ -1,4 +1,4 @@
-def simplified_maximumsSplicedArray(A, B): #!Simplified code of the below this function 
+def simplified_maximumsSplicedArray(A, B): #!Simplified code of the one below this function 
     """
     :type nums1: List[int]
     :type nums2: List[int]

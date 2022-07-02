@@ -1,9 +1,10 @@
-def exist(board, word): #!NEETCODE
+def exist(board, word): #!NEETCODE/MY CODE
     """
     :type board: List[List[str]]
     :type word: str
     :rtype: bool
     """
+    #* O(n*m*4*len(word)) - 4*len(word) cuz we call the rec fn 4 times
     m = len(board)
     n = len(board[0])
     
